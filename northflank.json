@@ -41,8 +41,8 @@
                   "name": "prod-builder",
                   "vcsData": {
                     "projectType": "github",
-                    "vcsLinkId": "65b77831aa5ec1e7f0374197",
-                    "projectUrl": "https://github.com/northflank-civo/webapp-with-redis"
+                    "vcsLinkId": "65d6033751db64227f74e280",
+                    "projectUrl": "https://github.com/LFrobeen/civonav-webapp-with-redis"
                   },
                   "buildConfiguration": {
                     "prRestrictions": [],
@@ -71,8 +71,8 @@
                   "name": "preview-builder",
                   "vcsData": {
                     "projectType": "github",
-                    "vcsLinkId": "65b77831aa5ec1e7f0374197",
-                    "projectUrl": "https://github.com/northflank-civo/webapp-with-redis"
+                    "vcsLinkId": "65d6033751db64227f74e280",
+                    "projectUrl": "https://github.com/LFrobeen/civonav-webapp-with-redis"
                   },
                   "buildConfiguration": {
                     "prRestrictions": [],
@@ -95,6 +95,12 @@
                 "spec": {
                   "deployment": {
                     "instances": 2,
+                    "storage": {
+                      "ephemeralStorage": {
+                        "storageSize": 1024
+                      },
+                      "shmSize": 64
+                    },
                     "docker": {
                       "configType": "default"
                     },
@@ -129,17 +135,23 @@
                   "runOnSourceChange": "never",
                   "backoffLimit": 0,
                   "activeDeadlineSeconds": 600,
-                  "runtimeEnvironment": {},
-                  "runtimeFiles": {},
-                  "billing": {
-                    "deploymentPlan": "nf-compute-50"
-                  },
                   "deployment": {
+                    "storage": {
+                      "ephemeralStorage": {
+                        "storageSize": 1024
+                      },
+                      "shmSize": 64
+                    },
                     "docker": {
                       "configType": "customCommand",
                       "customCommand": "yarn migrate"
                     },
                     "releaseFlowControlled": true
+                  },
+                  "runtimeEnvironment": {},
+                  "runtimeFiles": {},
+                  "billing": {
+                    "deploymentPlan": "nf-compute-50"
                   },
                   "name": "prod-migrations",
                   "disabledCI": false,
