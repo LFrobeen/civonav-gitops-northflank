@@ -204,7 +204,10 @@
     "spec": {
       "name": "test",
       "clusterId": "test",
-      "description": ""
+      "description": "",
+      "networking": {
+        "allowedIngressProjects": []
+      }
     }
   },
   "$schema": "https://api.northflank.com/v1/schemas/template"
